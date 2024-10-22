@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Récupérer le projet depuis GitHub
-                git branch: 'master', url: 'https://github.com/youssefayed213/DevOps'
+                git branch: 'master', url: 'https://youssefayed213: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@github.com/youssefayed213/DevOps'
             }
         }
         

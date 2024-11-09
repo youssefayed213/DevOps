@@ -20,7 +20,7 @@ pipeline {
             steps {
                 // Run SonarQube analysis
                 withSonarQubeEnv('SonarQube') {  // 'SonarQube' is the name of the SonarQube server configured in Jenkins
-                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=foyeeer -Dsonar.login=sqp_cc7dc3b88ef8e8701fc0b4ebdbe7dca33ea6377d'
+                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=foyeeer -Dsonar.login=$SONAR_TOKEN'
                 }
             }
         }

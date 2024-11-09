@@ -170,5 +170,5 @@ public class ReservationRestControllerTest {
                 .andExpect(content().string(expectedResponse));
 
         verify(reservationService, times(1)).annulerReservation(cinEtudiant);
-    }
+    }//
 }

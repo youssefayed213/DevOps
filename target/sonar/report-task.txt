@@ -2,5 +2,5 @@ projectKey=foyeeer
 serverUrl=http://localhost:9000
 serverVersion=10.7.0.96327
 dashboardUrl=http://localhost:9000/dashboard?id=foyeeer
-ceTaskId=5a3eb4ef-3de9-49df-b54f-b468630e99bf
-ceTaskUrl=http://localhost:9000/api/ce/task?id=5a3eb4ef-3de9-49df-b54f-b468630e99bf
+ceTaskId=759d9398-e25c-49d2-ae8d-e4614a4179d1
+ceTaskUrl=http://localhost:9000/api/ce/task?id=759d9398-e25c-49d2-ae8d-e4614a4179d1

@@ -2,35 +2,46 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_REPO = 'ayedyoussef777/foyer-app'  // Remplacez par votre repository Docker Hub
-        DOCKER_CREDENTIALS_ID = 'docker-hub-credentials' // L'ID des identifiants Docker Hub dans Jenkins
+        DOCKER_HUB_REPO = 'ayedyoussef777/foyer-app' // Your Docker Hub repository
+        DOCKER_CREDENTIALS_ID = 'docker-hub-credentials' // Jenkins credentials ID for Docker Hub
+        SONAR_SERVER = 'SonarQube' // Name of the SonarQube server configured in Jenkins
+        SONAR_TOKEN = credentials('jenkins-sonar') // Jenkins credentials ID for SonarQube token
     }
 
     stages {
         stage('Checkout') {
             steps {
-                // Récupérer le projet depuis GitHub
+                // Clone the project from GitHub
                 git branch: 'master', url: 'https://youssefayed213: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@github.com/youssefayed213/DevOps'
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                // Run SonarQube analysis
+                withSonarQubeEnv('SonarQube') {  // 'SonarQube' is the name of the SonarQube server configured in Jenkins
+                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=foyeeer -Dsonar.login=$SONAR_TOKEN'
+                }
             }
         }
 
         stage('Clean') {
             steps {
-                // Nettoyer le projet Maven
+                // Clean the Maven project
                 sh 'mvn clean'
             }
         }
 
         stage('Build without Tests') {
             steps {
-                // Compiler le projet sans exécuter les tests
+                // Build the project without running tests
                 sh 'mvn package -DskipTests'
             }
         }
 
         stage('Docker Build') {
             steps {
-                // Construire l'image Docker
+                // Build Docker image
                 script {
                     sh 'docker build -t ${DOCKER_HUB_REPO}:${BUILD_NUMBER} .'
                 }
@@ -39,7 +50,7 @@ pipeline {
 
         stage('Docker Push') {
             steps {
-                // Pousser l'image vers Docker Hub
+                // Push Docker image to Docker Hub
                 script {
                     withCredentials([usernamePassword(credentialsId: DOCKER_CREDENTIALS_ID, passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
                         sh "echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USERNAME --password-stdin"
@@ -51,7 +62,7 @@ pipeline {
 
         stage('Pull from Docker Hub') {
             steps {
-                // Tirer l'image depuis Docker Hub pour déploiement
+                // Pull the Docker image from Docker Hub for deployment
                 script {
                     sh "docker pull ${DOCKER_HUB_REPO}:${BUILD_NUMBER}"
                 }

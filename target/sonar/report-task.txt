@@ -1,0 +1,6 @@
+projectKey=foyeeer
+serverUrl=http://localhost:9000
+serverVersion=10.7.0.96327
+dashboardUrl=http://localhost:9000/dashboard?id=foyeeer
+ceTaskId=8624e368-baa9-4773-8199-69a5046f658f
+ceTaskUrl=http://localhost:9000/api/ce/task?id=8624e368-baa9-4773-8199-69a5046f658f

@@ -64,7 +64,7 @@ pipeline {
         stage('Nexus Deploy') {
             steps {
                 withCredentials([usernamePassword(credentialsId: NEXUS_CREDENTIALS_ID, passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                    sh "mvn deploy -DrepositoryId=nexus-snapshot -DaltDeploymentRepository=nexus-snapshot::default::${NEXUS_URL} -Dnexus.username=$NEXUS_USERNAME -Dnexus.password=$NEXUS_PASSWORD"
+                    sh "mvn deploy -DrepositoryId=nexus-snapshot -DaltDeploymentRepository=nexus-snapshot::default::${NEXUS_URL} -Dnexus.username=$NEXUS_USERNAME -Dnexus.password=$NEXUS_PASSWORD -X"
                 }
             }
         }

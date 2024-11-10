@@ -32,12 +32,12 @@ pipeline {
             }
         }
 
-        stage('Build without Tests') {
+       /* stage('Build without Tests') {
             steps {
                 // Build the project without running tests
                 sh 'mvn package -DskipTests'
             }
-        }
+        }*/
 
         stage('Docker Build') {
             steps {

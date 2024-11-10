@@ -61,7 +61,7 @@ pipeline {
                    }
                }
 
-        /*stage('Nexus Deploy') {
+       stage('Nexus Deploy') {
             steps {
                 withCredentials([usernamePassword(credentialsId: NEXUS_CREDENTIALS_ID, passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
                    sh """
@@ -71,7 +71,7 @@ pipeline {
 
                 }
             }
-        }*/
+        }
 
 
         stage('Pull from Docker Hub') {
@@ -93,4 +93,4 @@ pipeline {
         }
     }
 }
-///dfggh
+///dfgghf

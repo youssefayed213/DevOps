@@ -62,12 +62,13 @@ pipeline {
         }
 
         stage('Nexus Deploy') {
-                    steps {
-                        withCredentials([usernamePassword(credentialsId: NEXUS_CREDENTIALS_ID, passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
-                            sh "mvn deploy -DaltDeploymentRepository=nexus::default::${NEXUS_URL} -Dnexus.username=$NEXUS_USERNAME -Dnexus.password=$NEXUS_PASSWORD"
-                        }
-                    }
+            steps {
+                withCredentials([usernamePassword(credentialsId: NEXUS_CREDENTIALS_ID, passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+                    sh "mvn deploy -DrepositoryId=nexus -DaltDeploymentRepository=nexus::default::${NEXUS_URL} -Dnexus.username=$NEXUS_USERNAME -Dnexus.password=$NEXUS_PASSWORD"
                 }
+            }
+        }
+
 
         stage('Pull from Docker Hub') {
             steps {

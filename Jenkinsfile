@@ -6,6 +6,8 @@ pipeline {
         DOCKER_CREDENTIALS_ID = 'docker-hub-credentials' // Jenkins credentials ID for Docker Hub
         SONAR_SERVER = 'SonarQube' // Name of the SonarQube server configured in Jenkins
         SONAR_TOKEN = credentials('jenkins-sonar') // Jenkins credentials ID for SonarQube token
+        NEXUS_URL = 'http://localhost:8081/repository/maven-releases/'
+        NEXUS_CREDENTIALS_ID = 'jenkins-nexus'
     }
 
     stages {
@@ -58,6 +60,14 @@ pipeline {
                 }
             }
         }
+
+        stage('Nexus Deploy') {
+                    steps {
+                        withCredentials([usernamePassword(credentialsId: NEXUS_CREDENTIALS_ID, passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
+                            sh "mvn deploy -DaltDeploymentRepository=nexus::default::${NEXUS_URL} -Dnexus.username=$NEXUS_USERNAME -Dnexus.password=$NEXUS_PASSWORD"
+                        }
+                    }
+                }
 
         stage('Pull from Docker Hub') {
             steps {

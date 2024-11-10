@@ -73,7 +73,7 @@ pipeline {
         }
 
 
-        stage('Pull from Docker Hub') {
+       /* stage('Pull from Docker Hub') {
             steps {
                 // Pull the Docker image from Docker Hub for deployment
                 script {
@@ -81,7 +81,7 @@ pipeline {
                 }
             }
         }
-    }
+    }*/
 
     post {
         success {

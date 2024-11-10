@@ -16,9 +16,14 @@ pipeline {
             }
         }
 
+        stage('Workspace Cleanup') {
+            steps {
+                // Clean up the workspace to prevent caching issues
+                cleanWs()
+            }
+        }
         stage('SonarQube Analysis') {
             steps {
-                cleanWs()
                 // Run SonarQube analysis
                 withSonarQubeEnv('SonarQube') {  // 'SonarQube' is the name of the SonarQube server configured in Jenkins
                     sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=foyer22 -Dsonar.login=$SONAR_TOKEN -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml -X'

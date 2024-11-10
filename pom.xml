@@ -96,15 +96,14 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus-release</id>
+            <id>nexus</id>
             <url>http://localhost:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
-            <id>nexus-snapshot</id>
+            <id>nexus</id>
             <url>http://localhost:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-
 
     <build>
         <plugins>
@@ -113,11 +112,10 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>2.8.2</version>
                 <configuration>
-                    <url>http://localhost:8081/repository/maven-snapshots/</url>
-                    <repositoryId>nexus-snapshot</repositoryId>
+                    <url>http://localhost:8081/repository/maven-releases/</url>
+                    <repositoryId>nexus</repositoryId>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

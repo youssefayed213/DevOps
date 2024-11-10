@@ -68,7 +68,6 @@ pipeline {
                       mvn help:effective-settings -DshowPasswords=true -X
                       mvn deploy -DrepositoryId=nexus-snap -DaltDeploymentRepository=nexus::default::${NEXUS_URL} -Dnexus.username=${NEXUS_USERNAME} -Dnexus.password=${NEXUS_PASSWORD} -X
                       """
-
                 }
             }
         }
@@ -93,4 +92,4 @@ pipeline {
         }
     }
 }
-///dfgghf
+///dfgghfl

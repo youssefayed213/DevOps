@@ -71,7 +71,7 @@ pipeline {
         stage('Start Containers') {
             steps {
                 script {
-                    // Start both containers in detached mode
+                    // Start both containers in detached modfe
                     sh 'docker-compose up -d'
                 }
             }

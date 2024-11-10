@@ -15,13 +15,6 @@ pipeline {
                 git branch: 'master', url: 'https://youssefayed213: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@github.com/youssefayed213/DevOps'
             }
         }
-
-        stage('Workspace Cleanup') {
-            steps {
-                // Clean up the workspace to prevent caching issues
-                cleanWs()
-            }
-        }
         stage('SonarQube Analysis') {
             steps {
                 // Run SonarQube analysis

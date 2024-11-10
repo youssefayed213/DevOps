@@ -6,7 +6,7 @@ pipeline {
         DOCKER_CREDENTIALS_ID = 'docker-hub-credentials' // Jenkins credentials ID for Docker Hub
         SONAR_SERVER = 'SonarQube' // Name of the SonarQube server configured in Jenkins
         SONAR_TOKEN = credentials('jenkins-sonar') // Jenkins credentials ID for SonarQube token
-        NEXUS_URL = 'http://localhost:8081/repository/maven-releases/'
+        NEXUS_URL = 'http://localhost:8081/repository/maven-snapshots/'
         NEXUS_CREDENTIALS_ID = 'jenkins-nexus'
     }
 

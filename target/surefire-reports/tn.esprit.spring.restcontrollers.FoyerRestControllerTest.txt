@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tn.esprit.spring.restcontrollers.FoyerRestControllerTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.33 s - in tn.esprit.spring.restcontrollers.FoyerRestControllerTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.461 s - in tn.esprit.spring.restcontrollers.FoyerRestControllerTest

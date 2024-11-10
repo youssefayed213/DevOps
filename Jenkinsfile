@@ -60,7 +60,7 @@ pipeline {
                        }
                    }
                }
-
+/*
        stage('Nexus Deploy') {
             steps {
                 withCredentials([usernamePassword(credentialsId: NEXUS_CREDENTIALS_ID, passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USERNAME')]) {
@@ -70,10 +70,10 @@ pipeline {
                       """
                 }
             }
-        }
+        }*/
 
 
-       /* stage('Pull from Docker Hub') {
+       stage('Pull from Docker Hub') {
             steps {
                 // Pull the Docker image from Docker Hub for deployment
                 script {
@@ -81,7 +81,7 @@ pipeline {
                 }
             }
         }
-    }*/
+    }
 
     post {
         success {

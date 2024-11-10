@@ -1,6 +1,6 @@
-projectKey=foyeeer
+projectKey=foyer22
 serverUrl=http://localhost:9000
 serverVersion=10.7.0.96327
-dashboardUrl=http://localhost:9000/dashboard?id=foyeeer
-ceTaskId=8c688386-6d0a-4875-9af6-b71a59ef1e80
-ceTaskUrl=http://localhost:9000/api/ce/task?id=8c688386-6d0a-4875-9af6-b71a59ef1e80
+dashboardUrl=http://localhost:9000/dashboard?id=foyer22
+ceTaskId=1adccc40-ffb6-43ea-9d1f-477bc958d7a5
+ceTaskUrl=http://localhost:9000/api/ce/task?id=1adccc40-ffb6-43ea-9d1f-477bc958d7a5

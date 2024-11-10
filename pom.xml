@@ -96,11 +96,11 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus</id>
+            <id>nexus-release</id>
             <url>http://localhost:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
-            <id>nexus</id>
+            <id>nexus-snap</id>
             <url>http://localhost:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
